@@ -156,7 +156,7 @@ The following benchmarks are specific to FastDB capabilities. FastDB is able to 
 
  ## FastDB Serialization and Parallelism
 
-The default out-of-the-box configuration for FastDB does not enable serialization contracts or parallel serializaiton. FastDB parallelizaiton (BufferMode.WriteParallelEnabled) serializes, compreses, and encrypts data using separate threads. For small records the difference is marginal (198K vs 217K Op/s). 
+The default out-of-the-box configuration for FastDB does not enable serialization contracts or parallel serializaiton. FastDB parallelizaiton serializes, compreses, and encrypts data using separate threads. For small records the difference is marginal (198K vs 217K Op/s). However ...
  
   Method   | Product | Op/s      | FileSize |
 --------- |-------- |----------:|---------:|
@@ -164,9 +164,9 @@ The default out-of-the-box configuration for FastDB does not enable serializatio
  Contract | FastDB  | 201,109.0 |   370 KB |
  Parallel | FastDB  | 217,215.0 |   370 KB |
 
- ## FastDB Storage Size
+ ## FastDB Large Record Serilalization and Parallelism
 
- When large records are stored, which is a typical use case for serialized objects, compression and encryption are computationally expensive. Here, we show a large body of lorem ipsum text which is initally stored without encryption or compression. Enabling both features in FastDB decreases throughput signficantly. By offloading this work to threads, the performance (138K vs 140K Op/s) is nearly as fast as writing unencrypted uncompressed storage.
+ When large records are stored, which is a typical use case for serialized object graphs, compression and encryption become computationally expensive. This benchmark stores a large body of lorem ipsum text with and without encryption or compression. Enabling both compression and encryption decreases throughput signficantly. By offloading this work to threads, the performance in FastDB (138K vs 140K Op/s) is nearly the same as writing unencrypted uncompressed storage.
 
   Method                           | Product | Op/s      | FileSize |
 --------------------------------- |-------- |----------:|---------:|
