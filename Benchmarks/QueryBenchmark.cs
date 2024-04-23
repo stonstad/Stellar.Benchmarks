@@ -44,20 +44,6 @@ namespace Stellar.Benchmarking
             IterationSetup(TestData.CreateCustomers(Constants.N_10_000));
         }
 
-        [IterationSetup(Target = nameof(Query50000))]
-        public void IterationSetup_Query50000()
-        {
-            _BenchmarkName = nameof(Query50000);
-            IterationSetup(TestData.CreateCustomers(Constants.N_50_000));
-        }
-
-        [IterationSetup(Target = nameof(Query100000))]
-        public void IterationSetup_Query100000()
-        {
-            _BenchmarkName = nameof(Query100000);
-            IterationSetup(TestData.CreateCustomers(Constants.N_100_000));
-        }
-
         [IterationCleanup()]
         public void IterationCleanup()
         {
@@ -80,18 +66,6 @@ namespace Stellar.Benchmarking
 
         [Benchmark(OperationsPerInvoke = Constants.N_10_000)]
         public void Query10000()
-        {
-            _Product.Query();
-        }
-
-        [Benchmark(OperationsPerInvoke = Constants.N_50_000)]
-        public void Query50000()
-        {
-            _Product.Query();
-        }
-
-        [Benchmark(OperationsPerInvoke = Constants.N_100_000)]
-        public void Query100000()
         {
             _Product.Query();
         }

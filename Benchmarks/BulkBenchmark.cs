@@ -43,20 +43,6 @@ namespace Stellar.Benchmarking
             IterationSetup(TestData.CreateCustomers(Constants.N_10_000));
         }
 
-        [IterationSetup(Target = nameof(Bulk50000))]
-        public void IterationSetup_Bulk50000()
-        {
-            _BenchmarkName = nameof(Bulk50000);
-            IterationSetup(TestData.CreateCustomers(Constants.N_50_000));
-        }
-
-        [IterationSetup(Target = nameof(Bulk100000))]
-        public void IterationSetup_Bulk100000()
-        {
-            _BenchmarkName = nameof(Bulk100000);
-            IterationSetup(TestData.CreateCustomers(Constants.N_100_000));
-        }
-
         [IterationCleanup()]
         public void IterationCleanup()
         {
@@ -79,18 +65,6 @@ namespace Stellar.Benchmarking
 
         [Benchmark(OperationsPerInvoke = Constants.N_10_000)]
         public void Bulk10000()
-        {
-            _Product.Bulk();
-        }
-
-        [Benchmark(OperationsPerInvoke = Constants.N_50_000)]
-        public void Bulk50000()
-        {
-            _Product.Bulk();
-        }
-
-        [Benchmark(OperationsPerInvoke = Constants.N_100_000)]
-        public void Bulk100000()
         {
             _Product.Bulk();
         }
