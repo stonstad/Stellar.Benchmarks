@@ -1,22 +1,31 @@
 # Stellar.Benchmarks
  Benchmarks for .NET Embedded Databases
 
-# Test Configuration
+# Benchmark Configuration
+
+## Software
 - Windows 11 (10.0.22631.3447/23H2/2023Update/SunValley3)
-- AMD Ryzen 9 7950X, 1 CPU, 32 logical and 16 physical cores
 - .NET 8.0.4 (8.0.424.16909)
 - X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+
+## Hardware
+- AMD Ryzen 9 7950X, 1 CPU, 32 logical and 16 physical cores
+- Western Digital SN850X NVMe Gen4 PCIe SSD 2TB
 
 Each benchmark receives a warm-up phase followed by three iterations for calculation of error and standard deviation.
 
 # Products
 
-- FastDB (MIT License)
-- LiteDB (MIT License)
-- SQLite (MIT License) (Microsoft.Data.Sqlite ADO.NET Provider)
-- VistaDB (Commercial)
+ Product | License | Package | Version |
+------------ |-------- |----------:|----------:|
+[FastDB]()  | MIT License  | [Stellar.FastDB](https://www.nuget.org/packages/Stellar.FastDB) | 1.01 |
+[LiteDB](https://www.litedb.org/)  | MIT License  | [LiteDB](https://www.nuget.org/packages/LiteDB) | 5.0.19 |
+[SQLite](https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/?tabs=netcore-cli)  | MIT License  | [Microsoft.Data.Sqlite](https://www.nuget.org/packages/Microsoft.Data.Sqlite/) | 8.0.4 |
+[VistaDB](https://vistadb.com/)  | Commercial | Unavailable | 6.3 |
 
 # Results
+
+https://github.com/stonstad/Stellar.Benchmarks/tree/main/Results
 
 ## Insert
 
