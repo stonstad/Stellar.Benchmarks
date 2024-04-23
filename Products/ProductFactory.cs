@@ -8,12 +8,12 @@ namespace Stellar.Benchmarking
     {
         public static List<string> AvailableProducts = new List<string>()
         {
-            "SQLite",
+            "FastDB",
             "LiteDB",
+            "SQLite",
 #if(VistaDB)
             "VistaDB", 
 #endif
-            "FastDB"
         };
 
         public static IBenchmark Create(string product)

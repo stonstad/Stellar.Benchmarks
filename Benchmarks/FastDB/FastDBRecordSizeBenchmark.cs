@@ -10,6 +10,9 @@ namespace Stellar.Benchmarking
     {
         private const int N = Constants.N_10_000;
         private string _BenchmarkName;
+        
+        [Params("FastDB")]
+        public string Product { get; set; }
 
         private FastDB _FastDB;
         private IFastDBCollection<int, Customer> _Customers;
@@ -29,6 +32,18 @@ namespace Stellar.Benchmarking
                 case nameof(Large):
                     {
                         FastDBOptions options = new FastDBOptions();
+                        _FastDB = new FastDB(options);
+                        _CustomersTestData = TestData.CreateCustomersLongText(N);
+                        _Customers = _FastDB.GetCollection<int, Customer>();
+                        break;
+                    }
+                case nameof(LargeEncrypted):
+                    {
+                        FastDBOptions options = new FastDBOptions()
+                        {
+                            IsEncryptionEnabled = true,
+                            EncryptionPassword = "open-sesame",
+                        };
                         _FastDB = new FastDB(options);
                         _CustomersTestData = TestData.CreateCustomersLongText(N);
                         _Customers = _FastDB.GetCollection<int, Customer>();
@@ -74,6 +89,12 @@ namespace Stellar.Benchmarking
             IterationSetup(nameof(Large));
         }
 
+        [IterationSetup(Target = nameof(LargeEncrypted))]
+        public void IterationSetupLargeEncrypted()
+        {
+            IterationSetup(nameof(LargeEncrypted));
+        }
+
         [IterationSetup(Target = nameof(LargeEncryptedCompressed))]
         public void IterationSetupEncryptedCompressed()
         {
@@ -91,12 +112,19 @@ namespace Stellar.Benchmarking
         public void IterationCleanup()
         {
             BenchmarkMetadata.Instance.AddMetadata("FileSize", $"{_FastDB.GetFileSizeBytes() / 1024} KB");
-            BenchmarkMetadata.Instance.Save($"{_BenchmarkName}");
+            BenchmarkMetadata.Instance.Save($"{_BenchmarkName}_{Product}");
             _FastDB.Close();
         }
 
         [Benchmark(OperationsPerInvoke = N)]
         public void Large()
+        {
+            foreach (Customer customer in _CustomersTestData)
+                _Customers.Add(customer.Id, customer);
+        }
+
+        [Benchmark(OperationsPerInvoke = N)]
+        public void LargeEncrypted()
         {
             foreach (Customer customer in _CustomersTestData)
                 _Customers.Add(customer.Id, customer);

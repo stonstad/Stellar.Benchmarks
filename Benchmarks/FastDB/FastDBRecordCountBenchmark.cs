@@ -1,7 +1,9 @@
 ﻿using BenchmarkDotNet.Attributes;
 using Stellar.Collections;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Stellar.Benchmarking
 {
@@ -9,10 +11,17 @@ namespace Stellar.Benchmarking
     {
         private string _BenchmarkName;
 
+        [Params("FastDB")]
+        public string Product { get; set; }
+
+        [Params("Bulk", "Single")]
+        public string Mode { get; set; }
+
         private FastDB _FastDB;
         private IFastDBCollection<int, CustomerWithContract> _Customers;
 
         private List<CustomerWithContract> _CustomersTestData;
+        private Dictionary<int, CustomerWithContract> _CustomersTestDataDictionary;
 
         public void IterationSetup(string benchmark, int records)
         {
@@ -29,6 +38,7 @@ namespace Stellar.Benchmarking
             _FastDB = new FastDB(options);
 
             _CustomersTestData = TestData.CreateCustomersWithSerializationContract(records);
+            _CustomersTestDataDictionary = _CustomersTestData.ToDictionary(a => a.Id, a => a);
             _Customers = _FastDB.GetCollection<int, CustomerWithContract>();
         }
 
@@ -86,7 +96,7 @@ namespace Stellar.Benchmarking
         public void IterationCleanup()
         {
             BenchmarkMetadata.Instance.AddMetadata("FileSize", $"{_FastDB.GetFileSizeBytes() / 1024} KB");
-            BenchmarkMetadata.Instance.Save($"{_BenchmarkName}");
+            BenchmarkMetadata.Instance.Save($"{_BenchmarkName}_{Product}");
             _FastDB.Close();
         }
 
@@ -94,56 +104,95 @@ namespace Stellar.Benchmarking
         [Benchmark(OperationsPerInvoke = Constants.N_1_000)]
         public void Insert1000()
         {
-            foreach (var customer in _CustomersTestData)
-                _Customers.Add(customer.Id, customer);
+            if (Mode == "Bulk")
+            {
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.Flush();
+            }
+            else
+                foreach (var customer in _CustomersTestData)
+                    _Customers.Add(customer.Id, customer);
         }
 
 #if (IncludeHalfIncrement)
         [Benchmark(OperationsPerInvoke = Constants.N_5_000)]
         public void Insert5000()
-        {
-            foreach (var customer in _CustomersTestData)
-                _Customers.Add(customer.Id, customer);
+        {            if (Mode == "Bulk")
+            {
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.Flush();
+            }
+            else
+                foreach (var customer in _CustomersTestData)
+                    _Customers.Add(customer.Id, customer);
         }
 #endif
 
         [Benchmark(OperationsPerInvoke = Constants.N_10_000)]
         public void Insert10000()
         {
-            foreach (var customer in _CustomersTestData)
+            if (Mode == "Bulk")
+            {
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.Flush();
+            }
+            else
+                foreach (var customer in _CustomersTestData)
                 _Customers.Add(customer.Id, customer);
         }
 
 #if (IncludeHalfIncrement)
         [Benchmark(OperationsPerInvoke = Constants.N_50_000)]
         public void Insert50000()
-        {
-            foreach (var customer in _CustomersTestData)
-                _Customers.Add(customer.Id, customer);
+        {            if (Mode == "Bulk")
+            {
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.Flush();
+            }
+            else
+                foreach (var customer in _CustomersTestData)
+                    _Customers.Add(customer.Id, customer);
         }
 #endif
 
         [Benchmark(OperationsPerInvoke = Constants.N_100_000)]
         public void Insert100000()
         {
-            foreach (var customer in _CustomersTestData)
-                _Customers.Add(customer.Id, customer);
+            if (Mode == "Bulk")
+            {
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.Flush();
+            }
+            else
+                foreach (var customer in _CustomersTestData)
+                    _Customers.Add(customer.Id, customer);
         }
 
 #if (IncludeHalfIncrement)
         [Benchmark(OperationsPerInvoke = Constants.N_500_000)]
         public void Insert500000()
-        {
-            foreach (var customer in _CustomersTestData)
-                _Customers.Add(customer.Id, customer);
+        {            if (Mode == "Bulk")
+            {
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.Flush();
+            }
+            else
+                foreach (var customer in _CustomersTestData)
+                    _Customers.Add(customer.Id, customer);
         }
 #endif
 
         [Benchmark(OperationsPerInvoke = Constants.N_1_000_000)]
         public void Insert1000000()
         {
-            foreach (var customer in _CustomersTestData)
-                _Customers.Add(customer.Id, customer);
+            if (Mode == "Bulk")
+            {
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.Flush();
+            }
+            else
+                foreach (var customer in _CustomersTestData)
+                    _Customers.Add(customer.Id, customer);
         }
     }
 }

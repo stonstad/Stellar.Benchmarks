@@ -11,6 +11,9 @@ namespace Stellar.Benchmarking
         private const int N = Constants.N_10_000;
         private string _BenchmarkName;
 
+        [Params("FastDB")]
+        public string Product { get; set; }
+
         private FastDB _FastDB;
         private IFastDBCollection<int, Customer> _Customers;
         private IFastDBCollection<int, CustomerWithContract> _CustomersWithContract;
@@ -94,7 +97,7 @@ namespace Stellar.Benchmarking
         public void IterationCleanup()
         {
             BenchmarkMetadata.Instance.AddMetadata("FileSize", $"{_FastDB.GetFileSizeBytes() / 1024} KB");
-            BenchmarkMetadata.Instance.Save($"{_BenchmarkName}");
+            BenchmarkMetadata.Instance.Save($"{_BenchmarkName}_{Product}");
             _FastDB.Close();
         }
 

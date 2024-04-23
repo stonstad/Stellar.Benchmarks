@@ -15,7 +15,7 @@ namespace Stellar.Benchmarking
             AddJob(Job.Default
                 .WithLaunchCount(1)
                 .WithWarmupCount(1)
-                .WithIterationCount(1)
+                .WithIterationCount(3)
                 .WithInvocationCount(1)
                 .WithUnrollFactor(1));
 
@@ -45,8 +45,8 @@ namespace Stellar.Benchmarking
             AddColumnProvider(DefaultColumnProviders.Params);
             AddColumn(StatisticColumn.OperationsPerSecond);
             AddColumn(new BenchmarkCustomColumn("FileSize", UnitType.Size));
-            AddColumn(StatisticColumn.Error);
-            AddColumn(StatisticColumn.StdDev);
+            //AddColumn(StatisticColumn.Error);
+            //AddColumn(StatisticColumn.StdDev);
             AddColumn(BaselineRatioColumn.RatioMean);
 
             AddExporter(DefaultExporters.AsciiDoc);
