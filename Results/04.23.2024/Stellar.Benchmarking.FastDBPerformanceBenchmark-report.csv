@@ -1,0 +1,4 @@
+Method,Product,Op/s,FileSize
+Default,FastDB,"198,628.3",653 KB
+Contract,FastDB,"201,109.0",370 KB
+Parallel,FastDB,"217,215.0",370 KB

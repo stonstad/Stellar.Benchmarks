@@ -1,0 +1,5 @@
+Method,Product,Op/s,FileSize
+Large,FastDB,"140,470.9",20096 KB
+LargeEncrypted,FastDB,"100,435.0",20205 KB
+LargeEncryptedCompressed,FastDB,"68,064.7",14892 KB
+LargeEncryptedCompressedParallel,FastDB,"138,588.9",14892 KB
