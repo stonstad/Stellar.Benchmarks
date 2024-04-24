@@ -161,7 +161,7 @@ The default out-of-the-box configuration for FastDB does not include serializati
  Contract | FastDB  | 194,597.2 |   370 KB |
  Parallel | FastDB  | 216,106.1 |   370 KB |
 
- ## FastDB Large Record Serilalization and Parallelism
+ ## FastDB Large Record Parallelism
 
 When dealing with large records, which is often the case with serialized object graphs, the computational cost of compression and encryption can be substantial. In this benchmark, a significant amount of Lorem Ipsum text is stored both with and without encryption or compression. Enabling both compression and encryption markedly reduces throughput. However, by distributing this workload across threads, FastDB achieves nearly the same performance as writing unencrypted and uncompressed storage.
 
