@@ -34,7 +34,9 @@ The tests conducted involve inserting, deleting, upserting, or querying [records
 
 ## Insert
 
-The benchmarks involve inserting batches of 1K, 5K, and 10K records, with each operation focusing on an insert. After each benchmark, the size of the database file is recorded. Testing larger datasets, such as 500K records, with LiteDB, SQLite, and VistaDB is impractical due to the extended duration of these tests. FastDB and SQLite provide the smallest storage footprints among the databases tested. Notably, FastDB performs inserts significantly faster than its counterparts.
+The benchmarks involve inserting batches of 1K, 5K, and 10K records, with each operation focusing on an insert. After each benchmark, the size of the database file is recorded. Testing larger datasets, such as 500K records, with LiteDB, SQLite, and VistaDB is impractical due to the extended duration of these tests. 
+
+FastDB and SQLite provide the smallest storage footprints among the databases tested. Notably, FastDB performs inserts significantly faster than its counterparts.
 
  Method      | Product | Op/s      | FileSize |
 ------------ |-------- |----------:|---------:|
