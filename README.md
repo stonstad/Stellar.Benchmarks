@@ -23,7 +23,7 @@ Each product is evaluated using its default settings.
 
  Product | License | Package | Version |
 ------------ |-------- |----------:|----------:|
-[Stellar.FastDB](https://github.com/stonstad/Stellar.FastDB)  | MIT License  | [Stellar.FastDB](https://www.nuget.org/packages/Stellar.FastDB) | 1.03 |
+[Stellar.FastDB](https://github.com/stonstad/Stellar.FastDB)  | MIT License  | [Stellar.FastDB](https://www.nuget.org/packages/Stellar.FastDB) | 1.0.3 |
 [LiteDB](https://www.litedb.org/)  | MIT License  | [LiteDB](https://www.nuget.org/packages/LiteDB) | 5.0.19 |
 [SQLite](https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/?tabs=netcore-cli)  | MIT License  | [Microsoft.Data.Sqlite](https://www.nuget.org/packages/Microsoft.Data.Sqlite/) | 8.0.4 |
 [VistaDB](https://vistadb.com/)  | Commercial | Unavailable | 6.3 |
