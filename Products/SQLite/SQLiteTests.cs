@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading;
 
 namespace Stellar.Benchmarking
 {
@@ -89,11 +88,13 @@ namespace Stellar.Benchmarking
 
         public void Delete()
         {
-            using (var cmd = _Connection.CreateCommand())
-            {
-                cmd.CommandText = @"DELETE FROM Customers";
-                cmd.ExecuteNonQuery();
-            }
+            foreach (Customer customer in _TestData)
+                using (var cmd = _Connection.CreateCommand())
+                {
+                    cmd.CommandText = @"DELETE FROM Customers WHERE Id = @Id";
+                    cmd.Parameters.AddWithValue("@Id", customer.Id);
+                    cmd.ExecuteNonQuery();
+                }
         }
 
         public void Upsert()
@@ -120,14 +121,28 @@ namespace Stellar.Benchmarking
 
         public void Query()
         {
-            int count = 0;
+            // query and iterate
+            List<Customer> customers = new List<Customer>();
             using (var cmd = _Connection.CreateCommand())
             {
-                cmd.CommandText = "SELECT * FROM Customers WHERE Name LIKE 'John%' AND Telephone > 5555555";
+                cmd.CommandText =
+                    @"SELECT Id, Name, Telephone, DateOfBirth FROM Customers 
+                      WHERE Name LIKE 'John%' AND Telephone > 5555555";
                 using (var reader = cmd.ExecuteReader())
                     while (reader.Read())
-                        count++;
+                    {
+                        Customer customer = new Customer();
+                        customer.Id = reader.GetInt32(0);
+                        customer.Name = reader.GetString(1);
+                        customer.Telephone = reader.GetInt32(2);
+                        customer.DateOfBirth = reader.GetDateTime(3);
+                        customers.Add(customer);
+                    }
             }
+
+            int value = 0;
+            foreach (Customer customer in customers)
+                value += customer.Id;
         }
 
         public long GetFileSizeBytes()

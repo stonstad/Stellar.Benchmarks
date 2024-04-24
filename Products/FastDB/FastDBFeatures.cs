@@ -102,9 +102,15 @@ namespace Stellar.Benchmarking
             stopwatch.Stop();
             TestOutput.WriteThroughputResult("Update", testData.Count, stopwatch);
 
-            // query
+            // query and iterate
             stopwatch.Restart();
-            count = customers.Where(a => a.Name.StartsWith("John") && a.Telephone > 5555555).Count();
+            int value = 0;
+            count = 0;
+            foreach (Customer customer in customers.Where(a => a.Name.StartsWith("John") && a.Telephone > 5555555))
+            {
+                value += customer.Id;
+                count++;
+            }
             stopwatch.Stop();
             TestOutput.WriteThroughputResult("Query", testData.Count, stopwatch, detail: $"{count.ToString("N0")} matches");
 

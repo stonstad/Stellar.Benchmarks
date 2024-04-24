@@ -73,7 +73,10 @@ namespace Stellar.Benchmarking
 
         public void Query()
         {
-            _Customers.Find(a => a.Name.StartsWith("John") && a.Telephone > 5555555).Count();
+            // query and iterate
+            int value = 0;
+            foreach (Customer customer in _Customers.Find(a => a.Name.StartsWith("John") && a.Telephone > 5555555))
+                value += customer.Id;
         }
 
         public long GetFileSizeBytes()

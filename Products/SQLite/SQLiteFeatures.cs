@@ -49,31 +49,6 @@ namespace Stellar.Benchmarking
                 await cmd.ExecuteNonQueryAsync();
             }
 
-            // insert
-            stopwatch.Restart();
-            foreach (Customer customer in testData)
-                using (var cmd = connection.CreateCommand()) // must recreate command for each loop iteration
-                {
-                    cmd.CommandText = $"INSERT INTO Customers VALUES (@Id, @Name, @Telephone, @DateOfBirth);";
-                    cmd.Parameters.AddWithValue("@Id", customer.Id);
-                    cmd.Parameters.AddWithValue("@Name", customer.Name);
-                    cmd.Parameters.AddWithValue("@Telephone", customer.Telephone);
-                    cmd.Parameters.AddWithValue("@DateOfBirth", customer.DateOfBirth);
-                    await cmd.ExecuteNonQueryAsync();
-                }
-            stopwatch.Stop();
-            TestOutput.WriteThroughputResult("Insert", testData.Count, stopwatch);
-
-            // delete
-            stopwatch.Restart();
-            using (var cmd = connection.CreateCommand())
-            {
-                cmd.CommandText = @"DELETE FROM Customers";
-                await cmd.ExecuteNonQueryAsync();
-            }
-            stopwatch.Stop();
-            TestOutput.WriteThroughputResult("Delete", testData.Count, stopwatch);
-
             // bulk
             stopwatch.Restart();
             using (var trans = connection.BeginTransaction())
@@ -92,6 +67,31 @@ namespace Stellar.Benchmarking
             }
             stopwatch.Stop();
             TestOutput.WriteThroughputResult("Bulk", testData.Count, stopwatch);
+
+            // delete
+            stopwatch.Restart();
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = @"DELETE FROM Customers";
+                await cmd.ExecuteNonQueryAsync();
+            }
+            stopwatch.Stop();
+            TestOutput.WriteThroughputResult("Delete", testData.Count, stopwatch);
+
+            // insert
+            stopwatch.Restart();
+            foreach (Customer customer in testData)
+                using (var cmd = connection.CreateCommand()) // must recreate command for each loop iteration
+                {
+                    cmd.CommandText = $"INSERT INTO Customers VALUES (@Id, @Name, @Telephone, @DateOfBirth);";
+                    cmd.Parameters.AddWithValue("@Id", customer.Id);
+                    cmd.Parameters.AddWithValue("@Name", customer.Name);
+                    cmd.Parameters.AddWithValue("@Telephone", customer.Telephone);
+                    cmd.Parameters.AddWithValue("@DateOfBirth", customer.DateOfBirth);
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            stopwatch.Stop();
+            TestOutput.WriteThroughputResult("Insert", testData.Count, stopwatch);
 
             // upsert
             stopwatch.Restart();
@@ -116,15 +116,31 @@ namespace Stellar.Benchmarking
             stopwatch.Stop();
             TestOutput.WriteThroughputResult("Upsert", testData.Count, stopwatch);
 
-            // query
-            int count = 0;
+            // query and iterate
+            List<Customer> customers = new List<Customer>();
             stopwatch.Restart();
             using (var cmd = connection.CreateCommand())
             {
-                cmd.CommandText = "SELECT * FROM Customers WHERE Name LIKE 'John%' AND Telephone > 5555555";
-                using (var reader = await cmd.ExecuteReaderAsync())
+                cmd.CommandText =
+                   @"SELECT Id, Name, Telephone, DateOfBirth FROM Customers 
+                   WHERE Name LIKE 'John%' AND Telephone > 5555555";
+                using (var reader = cmd.ExecuteReader())
                     while (reader.Read())
-                        count++;
+                    {
+                        Customer customer = new Customer();
+                        customer.Id = reader.GetInt32(0);
+                        customer.Name = reader.GetString(1);
+                        customer.Telephone = reader.GetInt32(2);
+                        customer.DateOfBirth = reader.GetDateTime(3);
+                        customers.Add(customer);
+                    }
+            }
+            int value = 0;
+            int count = 0;
+            foreach (Customer customer in customers)
+            {
+                value += customer.Id;
+                count++;
             }
             stopwatch.Stop();
             TestOutput.WriteThroughputResult("Query", testData.Count, stopwatch, detail: $"{count.ToString("N0")} matches");

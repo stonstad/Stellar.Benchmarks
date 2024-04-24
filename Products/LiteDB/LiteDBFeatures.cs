@@ -39,12 +39,11 @@ namespace Stellar.Benchmarking
             LiteDatabase liteDB = new LiteDatabase(connectionString);
             var customers = liteDB.GetCollection<Customer>();
 
-            // insert
+            // bulk
             stopwatch.Restart();
-            foreach (Customer customer in testData)
-                customers.Insert(customer);
+            customers.InsertBulk(testData);
             stopwatch.Stop();
-            TestOutput.WriteThroughputResult("Insert", testData.Count, stopwatch);
+            TestOutput.WriteThroughputResult("Bulk", testData.Count, stopwatch);
 
             // delete
             stopwatch.Restart();
@@ -53,11 +52,13 @@ namespace Stellar.Benchmarking
             stopwatch.Stop();
             TestOutput.WriteThroughputResult("Delete", testData.Count, stopwatch);
 
-            // bulk
+            // insert
             stopwatch.Restart();
-            customers.InsertBulk(testData);
+            foreach (Customer customer in testData)
+                customers.Insert(customer);
             stopwatch.Stop();
-            TestOutput.WriteThroughputResult("Bulk", testData.Count, stopwatch);
+            TestOutput.WriteThroughputResult("Insert", testData.Count, stopwatch);
+
 
             // upsert
             stopwatch.Restart();
@@ -69,9 +70,15 @@ namespace Stellar.Benchmarking
             stopwatch.Stop();
             TestOutput.WriteThroughputResult("Upsert", testData.Count, stopwatch);
 
-            // query
+            // query and iterate
+            int count = 0;
+            int value = 0;
             stopwatch.Restart();
-            int count = customers.Find(a => a.Name.StartsWith("John") && a.Telephone > 5555555).Count();
+            foreach(Customer customer in customers.Find(a => a.Name.StartsWith("John") && a.Telephone > 5555555))
+            {
+                value += customer.Id;
+                count++;
+            }
             stopwatch.Stop();
             TestOutput.WriteThroughputResult("Query", testData.Count, stopwatch, detail: $"{count.ToString("N0")} matches");
 

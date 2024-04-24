@@ -45,11 +45,8 @@ namespace Stellar.Benchmarking
             AddColumnProvider(DefaultColumnProviders.Params);
             AddColumn(StatisticColumn.OperationsPerSecond);
             AddColumn(new BenchmarkCustomColumn("FileSize", UnitType.Size));
-            //AddColumn(StatisticColumn.Error);
-            //AddColumn(StatisticColumn.StdDev);
             AddColumn(BaselineRatioColumn.RatioMean);
 
-            AddExporter(DefaultExporters.AsciiDoc);
             AddExporter(DefaultExporters.Csv);
             AddExporter(DefaultExporters.Markdown);
             AddExporter(DefaultExporters.Plain);

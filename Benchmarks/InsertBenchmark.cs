@@ -44,7 +44,7 @@ namespace Stellar.Benchmarking
         [IterationCleanup()]
         public void IterationCleanup()
         {
-            BenchmarkMetadata.Instance.AddMetadata("FileSize", $"{_Product.GetFileSizeBytes() / 1024} KB");
+            BenchmarkMetadata.Instance.AddMetadata("FileSize", $"{(_Product.GetFileSizeBytes() / 1024).ToString("N0")} KB");
             BenchmarkMetadata.Instance.Save($"{_BenchmarkName}_{Product}");
             _Product.Cleanup();
         }

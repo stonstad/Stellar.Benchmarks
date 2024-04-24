@@ -1,0 +1,344 @@
+*** FastDBPerformanceBenchmark.Default: Job-XPXJBA(InvocationCount=1, IterationCount=3, LaunchCount=1, UnrollFactor=1, WarmupCount=1) [Product=FastDB] ***
+* Raw *
+OverheadJitting  1: 10000 op, 95100.00 ns, 9.5100 ns/op
+WorkloadJitting  1: 10000 op, 91800300.00 ns, 9.1800 us/op
+OverheadWarmup   1: 10000 op, 400.00 ns, 0.0400 ns/op
+OverheadWarmup   2: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadWarmup   3: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadWarmup   4: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadWarmup   5: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadWarmup   6: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   1: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   2: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   3: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   4: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   5: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   6: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   7: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   8: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual   9: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  10: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  11: 10000 op, 500.00 ns, 0.0500 ns/op
+OverheadActual  12: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  13: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  14: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  15: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  16: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  17: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  18: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  19: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  20: 10000 op, 200.00 ns, 0.0200 ns/op
+WorkloadWarmup   1: 10000 op, 50936400.00 ns, 5.0936 us/op
+WorkloadActual   1: 10000 op, 52163000.00 ns, 5.2163 us/op
+WorkloadActual   2: 10000 op, 50779400.00 ns, 5.0779 us/op
+WorkloadActual   3: 10000 op, 49572000.00 ns, 4.9572 us/op
+WorkloadResult   1: 10000 op, 52162800.00 ns, 5.2163 us/op
+WorkloadResult   2: 10000 op, 50779200.00 ns, 5.0779 us/op
+WorkloadResult   3: 10000 op, 49571800.00 ns, 4.9572 us/op
+
+* Statistics for OverheadJitting
+Mean = 9.510 ns, StdErr = 0.000 ns (0.00%), N = 1, StdDev = 0.000 ns
+Min = 9.510 ns, Q1 = 9.510 ns, Median = 9.510 ns, Q3 = 9.510 ns, Max = 9.510 ns
+IQR = 0.000 ns, LowerFence = 9.510 ns, UpperFence = 9.510 ns
+ConfidenceInterval = [NaN ns; NaN ns] (CI 99.9%), Margin = NaN ns (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[9.010 ns ; 10.010 ns) | @
+---------------------------------------------------
+
+* Statistics for WorkloadJitting
+Mean = 9.180 μs, StdErr = 0.000 μs (0.00%), N = 1, StdDev = 0.000 μs
+Min = 9.180 μs, Q1 = 9.180 μs, Median = 9.180 μs, Q3 = 9.180 μs, Max = 9.180 μs
+IQR = 0.000 μs, LowerFence = 9.180 μs, UpperFence = 9.180 μs
+ConfidenceInterval = [NaN μs; NaN μs] (CI 99.9%), Margin = NaN μs (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[9.180 μs ; 9.181 μs) | @
+---------------------------------------------------
+
+* Statistics for OverheadWarmup
+Mean = 0.022 ns, StdErr = 0.004 ns (18.53%), N = 6, StdDev = 0.010 ns
+Min = 0.010 ns, Q1 = 0.020 ns, Median = 0.020 ns, Q3 = 0.020 ns, Max = 0.040 ns
+IQR = 0.000 ns, LowerFence = 0.020 ns, UpperFence = 0.020 ns
+ConfidenceInterval = [-0.006 ns; 0.049 ns] (CI 99.9%), Margin = 0.028 ns (127.25% of Mean)
+Skewness = 0.8, Kurtosis = 2.35, MValue = 2
+-------------------- Histogram --------------------
+[0.008 ns ; 0.022 ns) | @@@@@
+[0.022 ns ; 0.033 ns) | 
+[0.033 ns ; 0.047 ns) | @
+---------------------------------------------------
+
+* Statistics for OverheadActual
+Mean = 0.021 ns, StdErr = 0.002 ns (7.65%), N = 20, StdDev = 0.007 ns
+Min = 0.010 ns, Q1 = 0.020 ns, Median = 0.020 ns, Q3 = 0.020 ns, Max = 0.050 ns
+IQR = 0.000 ns, LowerFence = 0.020 ns, UpperFence = 0.020 ns
+ConfidenceInterval = [0.015 ns; 0.027 ns] (CI 99.9%), Margin = 0.006 ns (29.70% of Mean)
+Skewness = 3.11, Kurtosis = 13.57, MValue = 2
+-------------------- Histogram --------------------
+[0.007 ns ; 0.013 ns) | @
+[0.013 ns ; 0.017 ns) | 
+[0.017 ns ; 0.024 ns) | @@@@@@@@@@@@@@@@@@
+[0.024 ns ; 0.031 ns) | 
+[0.031 ns ; 0.037 ns) | 
+[0.037 ns ; 0.046 ns) | 
+[0.046 ns ; 0.054 ns) | @
+---------------------------------------------------
+
+* Statistics for WorkloadWarmup
+Mean = 5.094 μs, StdErr = 0.000 μs (0.00%), N = 1, StdDev = 0.000 μs
+Min = 5.094 μs, Q1 = 5.094 μs, Median = 5.094 μs, Q3 = 5.094 μs, Max = 5.094 μs
+IQR = 0.000 μs, LowerFence = 5.094 μs, UpperFence = 5.094 μs
+ConfidenceInterval = [NaN μs; NaN μs] (CI 99.9%), Margin = NaN μs (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[5.093 μs ; 5.094 μs) | @
+---------------------------------------------------
+
+* Statistics for WorkloadActual
+Mean = 5.084 μs, StdErr = 0.075 μs (1.47%), N = 3, StdDev = 0.130 μs
+Min = 4.957 μs, Q1 = 5.018 μs, Median = 5.078 μs, Q3 = 5.147 μs, Max = 5.216 μs
+IQR = 0.130 μs, LowerFence = 4.823 μs, UpperFence = 5.341 μs
+ConfidenceInterval = [2.719 μs; 7.449 μs] (CI 99.9%), Margin = 2.365 μs (46.53% of Mean)
+Skewness = 0.05, Kurtosis = 0.67, MValue = 2
+-------------------- Histogram --------------------
+[4.900 μs ; 5.136 μs) | @@
+[5.136 μs ; 5.334 μs) | @
+---------------------------------------------------
+
+* Statistics for WorkloadResult
+Mean = 5.084 μs, StdErr = 0.075 μs (1.47%), N = 3, StdDev = 0.130 μs
+Min = 4.957 μs, Q1 = 5.018 μs, Median = 5.078 μs, Q3 = 5.147 μs, Max = 5.216 μs
+IQR = 0.130 μs, LowerFence = 4.823 μs, UpperFence = 5.341 μs
+ConfidenceInterval = [2.718 μs; 7.449 μs] (CI 99.9%), Margin = 2.365 μs (46.53% of Mean)
+Skewness = 0.05, Kurtosis = 0.67, MValue = 2
+-------------------- Histogram --------------------
+[4.900 μs ; 5.136 μs) | @@
+[5.136 μs ; 5.334 μs) | @
+---------------------------------------------------
+*** FastDBPerformanceBenchmark.Contract: Job-XPXJBA(InvocationCount=1, IterationCount=3, LaunchCount=1, UnrollFactor=1, WarmupCount=1) [Product=FastDB] ***
+* Raw *
+OverheadJitting  1: 10000 op, 95000.00 ns, 9.5000 ns/op
+WorkloadJitting  1: 10000 op, 88545200.00 ns, 8.8545 us/op
+OverheadWarmup   1: 10000 op, 300.00 ns, 0.0300 ns/op
+OverheadWarmup   2: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadWarmup   3: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadWarmup   4: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadWarmup   5: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadWarmup   6: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   1: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual   2: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual   3: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   4: 10000 op, 300.00 ns, 0.0300 ns/op
+OverheadActual   5: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual   6: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual   7: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   8: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual   9: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual  10: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  11: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual  12: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual  13: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual  14: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual  15: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  16: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual  17: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  18: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  19: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual  20: 10000 op, 100.00 ns, 0.0100 ns/op
+WorkloadWarmup   1: 10000 op, 53181100.00 ns, 5.3181 us/op
+WorkloadActual   1: 10000 op, 51217700.00 ns, 5.1218 us/op
+WorkloadActual   2: 10000 op, 51443100.00 ns, 5.1443 us/op
+WorkloadActual   3: 10000 op, 51504100.00 ns, 5.1504 us/op
+WorkloadResult   1: 10000 op, 51217600.00 ns, 5.1218 us/op
+WorkloadResult   2: 10000 op, 51443000.00 ns, 5.1443 us/op
+WorkloadResult   3: 10000 op, 51504000.00 ns, 5.1504 us/op
+
+* Statistics for OverheadJitting
+Mean = 9.500 ns, StdErr = 0.000 ns (0.00%), N = 1, StdDev = 0.000 ns
+Min = 9.500 ns, Q1 = 9.500 ns, Median = 9.500 ns, Q3 = 9.500 ns, Max = 9.500 ns
+IQR = 0.000 ns, LowerFence = 9.500 ns, UpperFence = 9.500 ns
+ConfidenceInterval = [NaN ns; NaN ns] (CI 99.9%), Margin = NaN ns (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[9.000 ns ; 10.000 ns) | @
+---------------------------------------------------
+
+* Statistics for WorkloadJitting
+Mean = 8.855 μs, StdErr = 0.000 μs (0.00%), N = 1, StdDev = 0.000 μs
+Min = 8.855 μs, Q1 = 8.855 μs, Median = 8.855 μs, Q3 = 8.855 μs, Max = 8.855 μs
+IQR = 0.000 μs, LowerFence = 8.855 μs, UpperFence = 8.855 μs
+ConfidenceInterval = [NaN μs; NaN μs] (CI 99.9%), Margin = NaN μs (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[8.854 μs ; 8.855 μs) | @
+---------------------------------------------------
+
+* Statistics for OverheadWarmup
+Mean = 0.022 ns, StdErr = 0.002 ns (7.69%), N = 6, StdDev = 0.004 ns
+Min = 0.020 ns, Q1 = 0.020 ns, Median = 0.020 ns, Q3 = 0.020 ns, Max = 0.030 ns
+IQR = 0.000 ns, LowerFence = 0.020 ns, UpperFence = 0.020 ns
+ConfidenceInterval = [0.010 ns; 0.033 ns] (CI 99.9%), Margin = 0.011 ns (52.84% of Mean)
+Skewness = 1.36, Kurtosis = 2.92, MValue = 2
+-------------------- Histogram --------------------
+[0.017 ns ; 0.023 ns) | @@@@@
+[0.023 ns ; 0.027 ns) | 
+[0.027 ns ; 0.033 ns) | @
+---------------------------------------------------
+
+* Statistics for OverheadActual
+Mean = 0.014 ns, StdErr = 0.001 ns (9.56%), N = 20, StdDev = 0.006 ns
+Min = 0.010 ns, Q1 = 0.010 ns, Median = 0.010 ns, Q3 = 0.020 ns, Max = 0.030 ns
+IQR = 0.010 ns, LowerFence = -0.005 ns, UpperFence = 0.035 ns
+ConfidenceInterval = [0.009 ns; 0.019 ns] (CI 99.9%), Margin = 0.005 ns (37.11% of Mean)
+Skewness = 1.06, Kurtosis = 2.99, MValue = 3.08
+-------------------- Histogram --------------------
+[0.007 ns ; 0.013 ns) | @@@@@@@@@@@@@
+[0.013 ns ; 0.017 ns) | 
+[0.017 ns ; 0.023 ns) | @@@@@@
+[0.023 ns ; 0.027 ns) | 
+[0.027 ns ; 0.033 ns) | @
+---------------------------------------------------
+
+* Statistics for WorkloadWarmup
+Mean = 5.318 μs, StdErr = 0.000 μs (0.00%), N = 1, StdDev = 0.000 μs
+Min = 5.318 μs, Q1 = 5.318 μs, Median = 5.318 μs, Q3 = 5.318 μs, Max = 5.318 μs
+IQR = 0.000 μs, LowerFence = 5.318 μs, UpperFence = 5.318 μs
+ConfidenceInterval = [NaN μs; NaN μs] (CI 99.9%), Margin = NaN μs (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[5.318 μs ; 5.319 μs) | @
+---------------------------------------------------
+
+* Statistics for WorkloadActual
+Mean = 5.139 μs, StdErr = 0.009 μs (0.17%), N = 3, StdDev = 0.015 μs
+Min = 5.122 μs, Q1 = 5.133 μs, Median = 5.144 μs, Q3 = 5.147 μs, Max = 5.150 μs
+IQR = 0.014 μs, LowerFence = 5.112 μs, UpperFence = 5.169 μs
+ConfidenceInterval = [4.864 μs; 5.414 μs] (CI 99.9%), Margin = 0.275 μs (5.36% of Mean)
+Skewness = -0.32, Kurtosis = 0.67, MValue = 2
+-------------------- Histogram --------------------
+[5.108 μs ; 5.164 μs) | @@@
+---------------------------------------------------
+
+* Statistics for WorkloadResult
+Mean = 5.139 μs, StdErr = 0.009 μs (0.17%), N = 3, StdDev = 0.015 μs
+Min = 5.122 μs, Q1 = 5.133 μs, Median = 5.144 μs, Q3 = 5.147 μs, Max = 5.150 μs
+IQR = 0.014 μs, LowerFence = 5.112 μs, UpperFence = 5.169 μs
+ConfidenceInterval = [4.864 μs; 5.414 μs] (CI 99.9%), Margin = 0.275 μs (5.36% of Mean)
+Skewness = -0.32, Kurtosis = 0.67, MValue = 2
+-------------------- Histogram --------------------
+[5.108 μs ; 5.164 μs) | @@@
+---------------------------------------------------
+*** FastDBPerformanceBenchmark.Parallel: Job-XPXJBA(InvocationCount=1, IterationCount=3, LaunchCount=1, UnrollFactor=1, WarmupCount=1) [Product=FastDB] ***
+* Raw *
+OverheadJitting  1: 10000 op, 96500.00 ns, 9.6500 ns/op
+WorkloadJitting  1: 10000 op, 87784700.00 ns, 8.7785 us/op
+OverheadWarmup   1: 10000 op, 300.00 ns, 0.0300 ns/op
+OverheadWarmup   2: 10000 op, 300.00 ns, 0.0300 ns/op
+OverheadWarmup   3: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadWarmup   4: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadWarmup   5: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadWarmup   6: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   1: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   2: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual   3: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   4: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   5: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   6: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   7: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual   8: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual   9: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  10: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  11: 10000 op, 900.00 ns, 0.0900 ns/op
+OverheadActual  12: 10000 op, 100.00 ns, 0.0100 ns/op
+OverheadActual  13: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  14: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  15: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  16: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  17: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  18: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  19: 10000 op, 200.00 ns, 0.0200 ns/op
+OverheadActual  20: 10000 op, 200.00 ns, 0.0200 ns/op
+WorkloadWarmup   1: 10000 op, 47826000.00 ns, 4.7826 us/op
+WorkloadActual   1: 10000 op, 46319100.00 ns, 4.6319 us/op
+WorkloadActual   2: 10000 op, 46236000.00 ns, 4.6236 us/op
+WorkloadActual   3: 10000 op, 46266200.00 ns, 4.6266 us/op
+WorkloadResult   1: 10000 op, 46318900.00 ns, 4.6319 us/op
+WorkloadResult   2: 10000 op, 46235800.00 ns, 4.6236 us/op
+WorkloadResult   3: 10000 op, 46266000.00 ns, 4.6266 us/op
+
+* Statistics for OverheadJitting
+Mean = 9.650 ns, StdErr = 0.000 ns (0.00%), N = 1, StdDev = 0.000 ns
+Min = 9.650 ns, Q1 = 9.650 ns, Median = 9.650 ns, Q3 = 9.650 ns, Max = 9.650 ns
+IQR = 0.000 ns, LowerFence = 9.650 ns, UpperFence = 9.650 ns
+ConfidenceInterval = [NaN ns; NaN ns] (CI 99.9%), Margin = NaN ns (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[9.150 ns ; 10.150 ns) | @
+---------------------------------------------------
+
+* Statistics for WorkloadJitting
+Mean = 8.778 μs, StdErr = 0.000 μs (0.00%), N = 1, StdDev = 0.000 μs
+Min = 8.778 μs, Q1 = 8.778 μs, Median = 8.778 μs, Q3 = 8.778 μs, Max = 8.778 μs
+IQR = 0.000 μs, LowerFence = 8.778 μs, UpperFence = 8.778 μs
+ConfidenceInterval = [NaN μs; NaN μs] (CI 99.9%), Margin = NaN μs (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[8.778 μs ; 8.779 μs) | @
+---------------------------------------------------
+
+* Statistics for OverheadWarmup
+Mean = 0.022 ns, StdErr = 0.003 ns (14.18%), N = 6, StdDev = 0.008 ns
+Min = 0.010 ns, Q1 = 0.020 ns, Median = 0.020 ns, Q3 = 0.028 ns, Max = 0.030 ns
+IQR = 0.007 ns, LowerFence = 0.009 ns, UpperFence = 0.039 ns
+ConfidenceInterval = [0.001 ns; 0.043 ns] (CI 99.9%), Margin = 0.021 ns (97.43% of Mean)
+Skewness = -0.17, Kurtosis = 1.46, MValue = 2.4
+-------------------- Histogram --------------------
+[0.005 ns ; 0.015 ns) | @
+[0.015 ns ; 0.019 ns) | 
+[0.019 ns ; 0.030 ns) | @@@@@
+---------------------------------------------------
+
+* Statistics for OverheadActual
+Mean = 0.022 ns, StdErr = 0.004 ns (16.68%), N = 20, StdDev = 0.016 ns
+Min = 0.010 ns, Q1 = 0.020 ns, Median = 0.020 ns, Q3 = 0.020 ns, Max = 0.090 ns
+IQR = 0.000 ns, LowerFence = 0.020 ns, UpperFence = 0.020 ns
+ConfidenceInterval = [0.008 ns; 0.036 ns] (CI 99.9%), Margin = 0.014 ns (64.79% of Mean)
+Skewness = 3.49, Kurtosis = 14.77, MValue = 2
+-------------------- Histogram --------------------
+[0.007 ns ; 0.023 ns) | @@@@@@@@@@@@@@@@@@@
+[0.023 ns ; 0.039 ns) | 
+[0.039 ns ; 0.055 ns) | 
+[0.055 ns ; 0.071 ns) | 
+[0.071 ns ; 0.082 ns) | 
+[0.082 ns ; 0.098 ns) | @
+---------------------------------------------------
+
+* Statistics for WorkloadWarmup
+Mean = 4.783 μs, StdErr = 0.000 μs (0.00%), N = 1, StdDev = 0.000 μs
+Min = 4.783 μs, Q1 = 4.783 μs, Median = 4.783 μs, Q3 = 4.783 μs, Max = 4.783 μs
+IQR = 0.000 μs, LowerFence = 4.783 μs, UpperFence = 4.783 μs
+ConfidenceInterval = [NaN μs; NaN μs] (CI 99.9%), Margin = NaN μs (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[4.782 μs ; 4.783 μs) | @
+---------------------------------------------------
+
+* Statistics for WorkloadActual
+Mean = 4.627 μs, StdErr = 0.002 μs (0.05%), N = 3, StdDev = 0.004 μs
+Min = 4.624 μs, Q1 = 4.625 μs, Median = 4.627 μs, Q3 = 4.629 μs, Max = 4.632 μs
+IQR = 0.004 μs, LowerFence = 4.619 μs, UpperFence = 4.635 μs
+ConfidenceInterval = [4.551 μs; 4.704 μs] (CI 99.9%), Margin = 0.077 μs (1.66% of Mean)
+Skewness = 0.17, Kurtosis = 0.67, MValue = 2
+-------------------- Histogram --------------------
+[4.620 μs ; 4.636 μs) | @@@
+---------------------------------------------------
+
+* Statistics for WorkloadResult
+Mean = 4.627 μs, StdErr = 0.002 μs (0.05%), N = 3, StdDev = 0.004 μs
+Min = 4.624 μs, Q1 = 4.625 μs, Median = 4.627 μs, Q3 = 4.629 μs, Max = 4.632 μs
+IQR = 0.004 μs, LowerFence = 4.619 μs, UpperFence = 4.635 μs
+ConfidenceInterval = [4.551 μs; 4.704 μs] (CI 99.9%), Margin = 0.077 μs (1.66% of Mean)
+Skewness = 0.17, Kurtosis = 0.67, MValue = 2
+-------------------- Histogram --------------------
+[4.620 μs ; 4.636 μs) | @@@
+---------------------------------------------------

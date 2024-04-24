@@ -25,8 +25,8 @@ namespace Stellar.Benchmarking
             else if (args[0] == "features")
             {
                 // tests and validates all features used in the benchmark test
-                int runs = 3;
-                int n = 500;
+                int runs = 1;
+                int n = 1000;
 
                 for (int i = 0; i < runs; i++)
                     await FastDBFeatures.Test(n);

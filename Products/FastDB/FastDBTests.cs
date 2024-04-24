@@ -53,7 +53,7 @@ namespace Stellar.Benchmarking
         public void Delete()
         {
             foreach (Customer customer in _TestData)
-                _Customers.Remove(customer.Id, out Customer removedCustomer);
+                _Customers.Remove(customer.Id, out _);
         }
 
         public void Upsert()
@@ -67,7 +67,10 @@ namespace Stellar.Benchmarking
 
         public void Query()
         {
-            _Customers.Where(a => a.Name.StartsWith("John") && a.Telephone > 5555555).Count();
+            // query and iterate
+            int value = 0;
+            foreach (Customer customer in _Customers.Where(a => a.Name.StartsWith("John") && a.Telephone > 5555555))
+                value += customer.Id;
         }
 
         public long GetFileSizeBytes()
