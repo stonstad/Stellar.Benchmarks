@@ -2,7 +2,7 @@
  Benchmarks for .NET Embedded Databases and Persistent Storage
 
 # Why do these benchmarks exist?
-I'm a game developer and I needed a high concurency storage solution for player-run game servers. Installing a local database would be asking too much of players. Therefore, I began a survey of embedded solutions. Full disclosure: I am the creator of [FastDB](https://github.com/stonstad/Stellar.FastDB).
+As a game developer, I needed a high-concurrency storage solution suitable for player-managed game servers. Installing traditional local databases posed too high a demand on players. I found that the available storage solutions were either too slow or struggled with concurrency issues during high volumes of simultaneous reads and writes. Such limitations are impractical for game servers, which must support a large number of players efficiently. I created a survey of availableembedded solutions for C#/.NET. Full disclosure: I am the creator of [FastDB](https://github.com/stonstad/Stellar.FastDB).
 
 # Benchmark Configuration
 
@@ -15,11 +15,11 @@ I'm a game developer and I needed a high concurency storage solution for player-
 - AMD Ryzen 9 7950X, 1 CPU, 32 logical and 16 physical cores
 - Western Digital SN850X NVMe Gen4 PCIe SSD 2TB
 
-Each benchmark receives a warm-up iteration followed by three iterations for calculation of benchmark error and standard deviation. Full source code for each test is included in this repository.
+Each benchmark undergoes a warm-up iteration, followed by three additional iterations to calculate the benchmark's error and standard deviation. The complete source code for each test is available in this repository.
 
 # Products
 
-Each product is tested using its default configuration.
+Each product is evaluated using its default settings.
 
  Product | License | Package | Version |
 ------------ |-------- |----------:|----------:|
@@ -30,11 +30,11 @@ Each product is tested using its default configuration.
 
 # Results
 
-The following tests insert, delete, upsert, or query [records](https://github.com/stonstad/Stellar.Benchmarks/blob/main/Test%20Data/Customer.cs). For relational embedded databases (VistaDB and SQLite), column values are inserted directly via a table insert operation. For document oriented databases (VistaDB and FastDB), serialization is used. VistaDB uses BSON serialization and FastDB uses UTF8 JSON or MessagePack. [Full test results](https://github.com/stonstad/Stellar.Benchmarks/tree/main/Results) are available within this repository.
+The tests conducted involve inserting, deleting, upserting, or querying [records](https://github.com/stonstad/Stellar.Benchmarks/blob/main/Test%20Data/Customer.cs). For relational embedded databases like VistaDB and SQLite, operations are performed directly through table insertions. In contrast, document-oriented databases such as VistaDB and FastDB utilize serialization methods: VistaDB employs BSON serialization, while FastDB uses either UTF8 JSON or MessagePack binary. [Complete test results](https://github.com/stonstad/Stellar.Benchmarks/tree/main/Results) are available within this repository.
 
 ## Insert
 
-Inserts 1K, 5K, and 10K records. Each Op is an insert operation. At the end of each benchmark the database file size is captured. Testing LiteDB, SQLite, and VistaDB with larger datasets (i.e. 500K) is unfeasible due to test duraation. FastDB and SQLite offer the smallest storage footprint. FastDB inserts are substantially faster than its peers.
+The benchmarks involve inserting batches of 1K, 5K, and 10K records, with each operation focusing on an insert. After each benchmark, the size of the database file is recorded. Testing larger datasets, such as 500K records, with LiteDB, SQLite, and VistaDB is impractical due to the extended duration of these tests. FastDB and SQLite provide the smallest storage footprints among the databases tested. Notably, FastDB performs inserts significantly faster than its counterparts.
 
  Method      | Product | Op/s      | FileSize |
 ------------ |-------- |----------:|---------:|
@@ -53,7 +53,7 @@ Inserts 1K, 5K, and 10K records. Each Op is an insert operation. At the end of e
 
 ## Delete
 
-Deletes 1K, 5K, and 10K records. SQLite delete operations are practically no-ops, while FastDB's over 100,000 deletes per second trails behind.
+Deletes 1K, 5K, and 10K records. Among the databases evaluated, FastDB consistently achieves the fastest deletion times.
 
  Method      | Product | Op/s      | FileSize |
 ------------ |-------- |----------:|---------:|
@@ -72,7 +72,7 @@ Deletes 1K, 5K, and 10K records. SQLite delete operations are practically no-ops
 
 ## Upsert
 
-Upserts 1K, 5K, and 10K records. FastDB shows constant performance across inserts, deletes, and upserts. SQLite trails behind its peers.
+Upserts 1K, 5K, and 10K records.
 
  Method      | Product | Op/s      | FileSize |
 ------------ |-------- |----------:|---------:|
@@ -91,7 +91,7 @@ Upserts 1K, 5K, and 10K records. FastDB shows constant performance across insert
 
 ## Bulk
 
-Bulk insert 1K, 5K or 10K records. Nearly all solutions offer substantial performance improvements when bulk-inserting records. VistaDB does not offer a standard bulk insert API call, but it does offers alternative options for insertion through DDA and CLR procs.
+Bulk inserts 1K, 5K, or 10K records. Almost all tested solutions demonstrate significant performance gains during bulk-insert operations. While VistaDB lacks a standard bulk insert API, it provides alternative methods for efficient data insertion, such as DDA (Direct Data Access) and CLR (Common Language Runtime) procedures.
 
  Method    | Product | Op/s      | FileSize |
 ---------- |-------- |----------:|---------:|
@@ -110,7 +110,7 @@ Bulk insert 1K, 5K or 10K records. Nearly all solutions offer substantial perfor
 
  ## Query
 
-Query against 1K, 5K, or 10K records and deserialize to a Customer object.
+Queries against a dataset of 1K, 5K, or 10K records and constructs a Customer instance for each result.
 
 Queries records and returns a corresponding dataset.  
 - FastDB and LiteDB: Customers.Where(a => a.Name.StartsWith("John") && a.Telephone > 5555555)
@@ -135,7 +135,7 @@ Queries records and returns a corresponding dataset.
 
 # Additional FastDB Benchmarks
 
-The following benchmarks are specific to FastDB capabilities. FastDB is able to achieve 1M records through a combination of a fast inserts and a small storage footprint.
+The benchmarks presented here focus on FastDB's unique capabilities. FastDB effortlessly accomodates up to 1 million records through a combination of a fast insertion and a compact storage footprint.
 
 ## FastDB Insert Performance
 
@@ -153,7 +153,7 @@ The following benchmarks are specific to FastDB capabilities. FastDB is able to 
 
  ## FastDB Serialization and Parallelism
 
-The default out-of-the-box configuration for FastDB does not enable serialization contracts or parallel serializaiton. FastDB parallelizaiton serializes, compreses, and encrypts data using separate threads. For small records the difference is marginal (198K vs 217K Op/s). However ...
+The default out-of-the-box configuration for FastDB does not include serialization contracts or parallel serialization. However, enabling parallelization significantly enhances the performance of serialization, compression, and encryption operations in FastDB. While the impact on small records is minimal, the difference becomes substantial when dealing with larger records, as demonstrated in the subsequent test.
  
  Method   | Product | Op/s      | FileSize |
 --------- |-------- |----------:|---------:|
@@ -163,7 +163,7 @@ The default out-of-the-box configuration for FastDB does not enable serializatio
 
  ## FastDB Large Record Serilalization and Parallelism
 
- When large records are stored, which is a typical use case for serialized object graphs, compression and encryption become computationally expensive. This benchmark stores a large body of lorem ipsum text with and without encryption or compression. Enabling both compression and encryption decreases throughput signficantly. By offloading this work to threads, the performance in FastDB (138K vs 140K Op/s) is nearly the same as writing unencrypted uncompressed storage.
+When dealing with large records, which is often the case with serialized object graphs, the computational cost of compression and encryption can be substantial. In this benchmark, a significant amount of Lorem Ipsum text is stored both with and without encryption or compression. Enabling both compression and encryption markedly reduces throughput. However, by distributing this workload across threads, FastDB achieves nearly the same performance as writing unencrypted and uncompressed storage.
 
  Method                           | Product | Op/s      | FileSize |
 --------------------------------- |-------- |----------:|---------:|
