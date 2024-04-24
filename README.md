@@ -157,9 +157,9 @@ The default out-of-the-box configuration for FastDB does not include serializati
  
  Method   | Product | Op/s      | FileSize |
 --------- |-------- |----------:|---------:|
- Default  | FastDB  | 196,703.5 |   653 KB |
- Contract | FastDB  | 194,597.2 |   370 KB |
- Parallel | FastDB  | 216,106.1 |   370 KB |
+ Default 10000  | FastDB  | 196,703.5 |   653 KB |
+ Contract 10000 | FastDB  | 194,597.2 |   370 KB |
+ Parallel 10000 | FastDB  | 216,106.1 |   370 KB |
 
  ## FastDB Large Record Parallelism
 
