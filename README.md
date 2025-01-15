@@ -2,7 +2,7 @@
  Benchmarks for .NET Embedded Databases and Persistent Storage
 
 # Why do these benchmarks exist?
-As a game developer, I needed a high-concurrency storage solution suitable for player-managed game servers. Installing traditional local databases posed too high a demand on players. I found that the available storage solutions were either too slow or struggled with concurrency issues during high volumes of simultaneous reads and writes. Such limitations are impractical for game servers, which must support a large number of players efficiently. I created a survey of available embedded solutions for C#/.NET. Full disclosure: I am the creator of [Stellar.FastDB](https://github.com/stonstad/Stellar.FastDB).
+As a game developer, I needed a high-concurrency storage for player-managed game servers. Installing a local databases is an unreasonable demand for players. I found that the available storage solutions were either too slow or struggled with concurrency during high volume of simultaneous reads and writes. Such limitations are impractical for game servers, which must support a large number of players efficiently. I created a survey of available embedded solutions for C#/.NET. Full disclosure: I am the creator of [Stellar.FastDB](https://github.com/stonstad/Stellar.FastDB).
 
 # Benchmark Configuration
 
