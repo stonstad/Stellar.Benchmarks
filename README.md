@@ -137,7 +137,7 @@ Queries records and returns a corresponding dataset.
 
 # Additional FastDB Benchmarks
 
-The benchmarks presented here focus on FastDB's unique capabilities. FastDB effortlessly accomodates up to 1 million records through a combination of a fast insertion and a compact storage footprint.
+The benchmarks presented here focus on FastDB's unique capabilities. FastDB effortlessly accomodates up to 1 million records through a combination of fast insertions and a compact storage footprint.
 
 ## FastDB Insert Performance
 
