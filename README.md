@@ -48,13 +48,13 @@ FastDB and SQLite provide the smallest storage footprints among the databases te
  **Insert1000**  | <ins>FastDB</ins>  | **193,550.9** |    **64 KB** |
  Insert5000  | FastDB  | 197,049.3 |   326 KB |
  Insert10000 | FastDB  | 192,855.8 |   653 KB |
- **Insert1000**  | **LiteDB**  |   **1,778.9** |   **136 KB** |
+ **Insert1000**  | LiteDB  |   **1,778.9** |   **136 KB** |
  Insert5000  | LiteDB  |   1,310.2 |   816 KB |
  Insert10000 | LiteDB  |   1,251.0 | 1,656 KB |
- **Insert1000**  | **SQLite**  |     **713.3** |    **52 KB** |
+ **Insert1000**  | SQLite  |     **713.3** |    **52 KB** |
  Insert5000  | SQLite  |     747.6 |   228 KB |
  Insert10000 | SQLite  |     753.7 |   444 KB |
- **Insert1000**  | **VistaDB** |   **2,503.1** |   **124 KB** |
+ **Insert1000**  | VistaDB |   **2,503.1** |   **124 KB** |
  Insert5000  | VistaDB |   4,078.1 |   484 KB |
  Insert10000 | VistaDB |   2,648.0 |   940 KB |
 
@@ -64,16 +64,16 @@ Deletes 1K, 5K, and 10K records. Among the databases evaluated, FastDB consisten
 
  Method      | Product | Op/s      | FileSize |
 ------------ |-------- |----------:|---------:|
- **Delete1000**  | **FastDB**  | **181,408.1** |    **64 KB** |
+ **Delete1000**  | <ins>FastDB</ins>  | **181,408.1** |    **64 KB** |
  Delete5000  | FastDB  | 179,938.7 |   326 KB |
  Delete10000 | FastDB  | 164,177.6 |   653 KB |
- **Delete1000**  | **LiteDB**  |   **1,337.3** |   **192 KB** |
+ **Delete1000**  | LiteDB  |   **1,337.3** |   **192 KB** |
  Delete5000  | LiteDB  |   1,256.5 |   848 KB |
  Delete10000 | LiteDB  |   1,207.7 | 1,664 KB |
- **Delete1000**  | **SQLite**  |     **741.9** |    **52 KB** |
+ **Delete1000**  | SQLite  |     **741.9** |    **52 KB** |
  Delete5000  | SQLite  |     748.4 |   228 KB |
  Delete10000 | SQLite  |     757.6 |   444 KB |
- **Delete1000**  | **VistaDB** |   **5,182.7** |   **124 KB** |
+ **Delete1000**  | VistaDB |   **5,182.7** |   **124 KB** |
  Delete5000  | VistaDB |   6,537.4 |   484 KB |
  Delete10000 | VistaDB |   5,503.5 |   940 KB |
 
@@ -83,16 +83,16 @@ Upserts 1K, 5K, and 10K records.
 
  Method      | Product | Op/s      | FileSize |
 ------------ |-------- |----------:|---------:|
- **Upsert1000**  | **FastDB**  | **102,105.1** |    **64 KB** |
+ **Upsert1000**  | <ins>FastDB</ins>  | **102,105.1** |    **64 KB** |
  Upsert5000  | FastDB  |  98,313.4 |   326 KB |
  Upsert10000 | FastDB  |  93,633.9 |   653 KB |
- **Upsert1000**  | **LiteDB**  |   **3,471.8** |   **192 KB** |
+ **Upsert1000**  | LiteDB  |   **3,471.8** |   **192 KB** |
  Upsert5000  | LiteDB  |   3,441.2 |   848 KB |
  Upsert10000 | LiteDB  |   3,192.2 | 1,664 KB |
- **Upsert1000**  | **SQLite**  |     **729.9** |    **52 KB** |
+ **Upsert1000**  | SQLite  |     **729.9** |    **52 KB** |
  Upsert5000  | SQLite  |     743.3 |   228 KB |
  Upsert10000 | SQLite  |     741.9 |   444 KB |
- **Upsert1000**  | **VistaDB** |   **4,935.4** |   **124 KB** |
+ **Upsert1000**  | VistaDB |   **4,935.4** |   **124 KB** |
  Upsert5000  | VistaDB |   3,442.2 |   484 KB |
  Upsert10000 | VistaDB |   2,372.8 |   940 KB |
 
@@ -102,16 +102,16 @@ Bulk inserts 1K, 5K, or 10K records. Almost all tested solutions demonstrate sig
 
  Method    | Product | Op/s      | FileSize |
 ---------- |-------- |----------:|---------:|
- **Bulk1000**  | **FastDB**  | **217,646.8** |    **64 KB** |
+ **Bulk1000**  | <ins>FastDB</ins>  | **217,646.8** |    **64 KB** |
  Bulk5000  | FastDB  | 226,483.1 |   326 KB |
  Bulk10000 | FastDB  | 226,075.9 |   653 KB |
- **Bulk1000**  | **LiteDB**  |  **52,103.5** |     **8 KB** |
+ **Bulk1000**  | LiteDB  |  **52,103.5** |     **8 KB** |
  Bulk5000  | LiteDB  |  44,871.5 |     8 KB |
  Bulk10000 | LiteDB  |  44,219.3 |     8 KB |
- **Bulk1000**  | **SQLite**  | **196,256.7** |    **52 KB** |
+ **Bulk1000**  | SQLite  | **196,256.7** |    **52 KB** |
  Bulk5000  | SQLite  | 290,778.0 |   228 KB |
  Bulk10000 | SQLite  | 294,455.4 |   444 KB |
- **Bulk1000**  | **VistaDB** |   **2,582.1** |   **136 KB** |
+ **Bulk1000**  | VistaDB |   **2,582.1** |   **136 KB** |
  Bulk5000  | VistaDB |   4,657.8 |   496 KB |
  Bulk10000 | VistaDB |   2,706.4 |   952 KB |
 
@@ -125,16 +125,16 @@ Queries records and returns a corresponding dataset.
  
  Method     | Product | Op/s         | FileSize |
 ----------- |-------- |-------------:|---------:|
- **Query1000**  | **FastDB**  | **14,992,503.7** |    **64 KB** |
+ **Query1000**  | <ins>FastDB</ins>  | **14,992,503.7** |    **64 KB** |
  Query5000  | FastDB  |  9,416,787.0 |   326 KB |
  Query10000 | FastDB  | 12,080,699.1 |   653 KB |
- **Query1000**  | **LiteDB**  |    **249,787.7** |   **136 KB** |
+ **Query1000**  | LiteDB  |    **249,787.7** |   **136 KB** |
  Query5000  | LiteDB  |    446,071.4 |   816 KB |
  Query10000 | LiteDB  |    497,798.9 | 1,656 KB |
- **Query1000**  | **SQLite**  |  **2,200,704.2** |    **52 KB** |
+ **Query1000**  | SQLite  |  **2,200,704.2** |    **52 KB** |
  Query5000  | SQLite  |  1,553,824.5 |   228 KB |
  Query10000 | SQLite  |  2,227,601.5 |   444 KB |
- **Query1000**  | **VistaDB** |     **74,732.6** |   **124 KB** |
+ **Query1000**  | VistaDB |     **74,732.6** |   **124 KB** |
  Query5000  | VistaDB |    418,324.9 |   484 KB |
  Query10000 | VistaDB |    574,299.0 |   940 KB |
 
@@ -148,11 +148,11 @@ The benchmarks presented here focus on FastDB's unique capabilities. FastDB effo
 
  Method        | Product | Mode   | Op/s      | FileSize |
 -------------- |-------- |------- |----------:|---------:|
- **Insert1000**    | **FastDB**  | **Single** | **188,786.1** |    **36 KB** |
+ **Insert1000**    | <ins>FastDB</ins>  | **Single** | **188,786.1** |    **36 KB** |
  Insert10000   | FastDB  | Single | 192,850.3 |   370 KB |
  Insert100000  | FastDB  | Single | 238,873.6 |  4084 KB |
  Insert1000000 | FastDB  | Single | 236,358.7 | 48479 KB |
- **Insert1000**    | **FastDB**  | **Bulk**   | **222,819.7** |    **36 KB** |
+ **Insert1000**    | <ins>FastDB</ins>  | **Bulk**   | **222,819.7** |    **36 KB** |
  Insert10000   | FastDB  | Bulk   | 231,856.1 |   370 KB |
  Insert100000  | FastDB  | Bulk   | 307,370.7 |  4084 KB |
  Insert1000000 | FastDB  | Bulk   | 294,974.6 | 48479 KB |
