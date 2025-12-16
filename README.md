@@ -30,7 +30,10 @@ Each product is evaluated using its default settings.
 
 # Results
 
-The test evaluates insert, delete, upsert, and querying performance using a [customer record](https://github.com/stonstad/Stellar.Benchmarks/blob/main/Test%20Data/Customer.cs). For relational embedded databases like VistaDB and SQLite, serialization is not used. Document-oriented databases such as VistaDB and FastDB use serialization. VistaDB employs BSON serialization and FastDB may be configured to use UTF8 JSON or MessagePack binary. [Complete test results](https://github.com/stonstad/Stellar.Benchmarks/tree/main/Results) are available within this repository.
+## Configuration
+The test evaluates insert, delete, upsert, and querying performance using a [customer record](https://github.com/stonstad/Stellar.Benchmarks/blob/main/Test%20Data/Customer.cs). 
+
+Relational embedded databases (such as SQLite) write records directly to table memory. In contrast, document-oriented databases (such as VistaDB and FastDB) serialize each record before storing it. VistaDB uses BSON serialization and FastDB may be configured to use UTF8 JSON or MessagePack binary. Unless noted otherwise, FastDB uses UTF8 JSON. [Complete test results](https://github.com/stonstad/Stellar.Benchmarks/tree/main/Results) are available within this repository.
 
 ## Insert
 
