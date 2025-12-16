@@ -45,7 +45,7 @@ FastDB and SQLite provide the smallest storage footprints among the databases te
 
  Method      | Product | Op/s      | FileSize |
 ------------ |-------- |----------:|---------:|
- **Insert1000**  | **FastDB**  | **193,550.9** |    **64 KB** |
+ **Insert1000**  | <ins>FastDB</ins>  | **193,550.9** |    **64 KB** |
  Insert5000  | FastDB  | 197,049.3 |   326 KB |
  Insert10000 | FastDB  | 192,855.8 |   653 KB |
  **Insert1000**  | **LiteDB**  |   **1,778.9** |   **136 KB** |
