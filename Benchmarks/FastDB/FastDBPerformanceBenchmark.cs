@@ -57,13 +57,12 @@ namespace Stellar.Benchmarking
 
                         break;
                     }
-                case nameof(Parallel):
+                case nameof(Buffered):
                     {
                         FastDBOptions options = new FastDBOptions()
                         {
                             Serializer = SerializerType.MessagePack_Contract,
-                            BufferMode = BufferModeType.WriteParallelEnabled,
-                            MaxDegreeOfParallelism = 12,
+                            Durability = DurabilityMode.Buffered,
                         };
                         _FastDB = new FastDB(options);
                         _CustomersWithContractTestData = TestData.CreateCustomersWithSerializationContract(N);
@@ -87,10 +86,10 @@ namespace Stellar.Benchmarking
             IterationSetup(nameof(Contract));
         }
 
-        [IterationSetup(Target = nameof(Parallel))]
-        public void IterationSetupParallel()
+        [IterationSetup(Target = nameof(Buffered))]
+        public void IterationSetupBuffered()
         {
-            IterationSetup(nameof(Parallel));
+            IterationSetup(nameof(Buffered));
         }
 
         [IterationCleanup()]
@@ -116,7 +115,7 @@ namespace Stellar.Benchmarking
         }
 
         [Benchmark(OperationsPerInvoke = N)]
-        public void Parallel()
+        public void Buffered()
         {
             foreach (CustomerWithContract customer in _CustomersWithContractTestData)
                 _CustomersWithContract.Add(customer.Id, customer);

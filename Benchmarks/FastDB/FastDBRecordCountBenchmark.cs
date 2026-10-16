@@ -86,11 +86,13 @@ namespace Stellar.Benchmarking
 #endif
 
 
+#if (IncludeMillion)
         [IterationSetup(Target = nameof(Insert1000000))]
         public void IterationSetup_Insert1000000()
         {
             IterationSetup(nameof(Insert1000000), Constants.N_1_000_000);
         }
+#endif
 
         [IterationCleanup()]
         public void IterationCleanup()
@@ -106,7 +108,7 @@ namespace Stellar.Benchmarking
         {
             if (Mode == "Bulk")
             {
-                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary).AsTask().GetAwaiter().GetResult();
                 _Customers.Flush();
             }
             else
@@ -119,7 +121,7 @@ namespace Stellar.Benchmarking
         public void Insert5000()
         {            if (Mode == "Bulk")
             {
-                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary).AsTask().GetAwaiter().GetResult();
                 _Customers.Flush();
             }
             else
@@ -133,7 +135,7 @@ namespace Stellar.Benchmarking
         {
             if (Mode == "Bulk")
             {
-                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary).AsTask().GetAwaiter().GetResult();
                 _Customers.Flush();
             }
             else
@@ -146,7 +148,7 @@ namespace Stellar.Benchmarking
         public void Insert50000()
         {            if (Mode == "Bulk")
             {
-                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary).AsTask().GetAwaiter().GetResult();
                 _Customers.Flush();
             }
             else
@@ -160,7 +162,7 @@ namespace Stellar.Benchmarking
         {
             if (Mode == "Bulk")
             {
-                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary).AsTask().GetAwaiter().GetResult();
                 _Customers.Flush();
             }
             else
@@ -173,7 +175,7 @@ namespace Stellar.Benchmarking
         public void Insert500000()
         {            if (Mode == "Bulk")
             {
-                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary).AsTask().GetAwaiter().GetResult();
                 _Customers.Flush();
             }
             else
@@ -182,17 +184,19 @@ namespace Stellar.Benchmarking
         }
 #endif
 
+#if (IncludeMillion)
         [Benchmark(OperationsPerInvoke = Constants.N_1_000_000)]
         public void Insert1000000()
         {
             if (Mode == "Bulk")
             {
-                _Customers.AddBulkAsync(_CustomersTestDataDictionary);
+                _Customers.AddBulkAsync(_CustomersTestDataDictionary).AsTask().GetAwaiter().GetResult();
                 _Customers.Flush();
             }
             else
                 foreach (var customer in _CustomersTestData)
                     _Customers.Add(customer.Id, customer);
         }
+#endif
     }
 }

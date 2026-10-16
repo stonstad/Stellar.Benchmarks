@@ -1,0 +1,10 @@
+Method,Product,Op/s,FileSize
+Query1000,FastDB,"11,494,252.9",65 KB
+Query5000,FastDB,"5,753,298.6",331 KB
+Query10000,FastDB,"8,733,116.0",663 KB
+Query1000,LiteDB,"324,468.1",136 KB
+Query5000,LiteDB,"328,272.8",816 KB
+Query10000,LiteDB,"404,379.7","1,656 KB"
+Query1000,SQLite,"2,082,032.1",52 KB
+Query5000,SQLite,"1,009,693.1",228 KB
+Query10000,SQLite,"1,892,529.6",444 KB

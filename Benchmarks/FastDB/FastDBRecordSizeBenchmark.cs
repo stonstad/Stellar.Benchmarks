@@ -62,12 +62,11 @@ namespace Stellar.Benchmarking
                         _Customers = _FastDB.GetCollection<int, Customer>();
                         break;
                     }
-                case nameof(LargeEncryptedCompressedParallel):
+                case nameof(LargeEncryptedCompressedBuffered):
                     {
                         FastDBOptions options = new FastDBOptions()
                         {
-                            BufferMode = BufferModeType.WriteParallelEnabled,
-                            MaxDegreeOfParallelism = 8,
+                            Durability = DurabilityMode.Buffered,
 
                             IsEncryptionEnabled = true,
                             IsCompressionEnabled = true,
@@ -101,10 +100,10 @@ namespace Stellar.Benchmarking
             IterationSetup(nameof(LargeEncryptedCompressed));
         }
 
-        [IterationSetup(Target = nameof(LargeEncryptedCompressedParallel))]
-        public void IterationSetupEncryptedCompressedParallel()
+        [IterationSetup(Target = nameof(LargeEncryptedCompressedBuffered))]
+        public void IterationSetupEncryptedCompressedBuffered()
         {
-            IterationSetup(nameof(LargeEncryptedCompressedParallel));
+            IterationSetup(nameof(LargeEncryptedCompressedBuffered));
         }
 
 
@@ -138,7 +137,7 @@ namespace Stellar.Benchmarking
         }
 
         [Benchmark(OperationsPerInvoke = N)]
-        public void LargeEncryptedCompressedParallel()
+        public void LargeEncryptedCompressedBuffered()
         {
             foreach (Customer customer in _CustomersTestData)
                 _Customers.Add(customer.Id, customer);

@@ -1,0 +1,4 @@
+Method,Product,Op/s,FileSize
+Writers1,FastDB,"441,919.0","7,013 KB"
+Writers4,FastDB,"424,274.3","6,924 KB"
+Writers16,FastDB,"416,501.3","6,966 KB"

@@ -6,15 +6,31 @@ namespace Stellar.Benchmarking
 {
     public static class ProductFactory
     {
-        public static List<string> AvailableProducts = new List<string>()
+        /// <summary>
+        /// The only product to benchmark, such as "FastDB", or null for all of them. Set it before running: BenchmarkDotNet
+        /// reads the products in this process and passes each one to the child process that runs its benchmark.
+        /// </summary>
+        public static string OnlyProduct { get; set; }
+
+        public static List<string> AvailableProducts
         {
-            "FastDB",
-            "LiteDB",
-            "SQLite",
+            get
+            {
+                List<string> products = new List<string>()
+                {
+                    "FastDB",
+                    "LiteDB",
+                    "SQLite",
 #if(VistaDB)
-            "VistaDB", 
+                    "VistaDB",
 #endif
-        };
+                };
+
+                if (OnlyProduct != null)
+                    return products.FindAll(a => string.Equals(a, OnlyProduct, StringComparison.OrdinalIgnoreCase));
+                return products;
+            }
+        }
 
         public static IBenchmark Create(string product)
         {

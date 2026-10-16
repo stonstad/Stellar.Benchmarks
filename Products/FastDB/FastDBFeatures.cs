@@ -27,7 +27,7 @@ namespace Stellar.Benchmarking
             // test: write buffering
             options = new FastDBOptions()
             {
-                BufferMode = BufferModeType.WriteEnabled
+                Durability = DurabilityMode.Buffered
             };
             await TestFeatures("Write Buffering", options, TestData.CreateCustomers(n));
 
@@ -39,25 +39,24 @@ namespace Stellar.Benchmarking
             };
             await TestFeatures("Encrypted", options, TestData.CreateCustomers(n));
 
-            // test: parallel transformation OFF
+            // test: large records, flushed
             options = new FastDBOptions()
             {
                 IsEncryptionEnabled = true,
                 IsCompressionEnabled = true,
                 EncryptionPassword = "open-sesame",
             };
-            await TestLargeRecord("Parallel Transformation Off (Large Record)", options, TestData.CreateCustomersLongText(n));
+            await TestLargeRecord("Flushed (Large Record)", options, TestData.CreateCustomersLongText(n));
 
-            // test: parallel transformation ON
+            // test: large records, buffered
             options = new FastDBOptions()
             {
-                BufferMode = BufferModeType.WriteParallelEnabled,
-                MaxDegreeOfParallelism = 8,
+                Durability = DurabilityMode.Buffered,
                 IsEncryptionEnabled = true,
                 IsCompressionEnabled = true,
                 EncryptionPassword = "open-sesame",
             };
-            await TestLargeRecord("Parallel Transformation On (Large Record)", options, TestData.CreateCustomersLongText(n));
+            await TestLargeRecord("Buffered (Large Record)", options, TestData.CreateCustomersLongText(n));
         }
 
         public static async Task TestFeatures(string test, FastDBOptions options, List<Customer> testData)

@@ -1,0 +1,10 @@
+Method,Product,Op/s,FileSize
+Delete1000,FastDB,"393,416.8",0 KB
+Delete5000,FastDB,"215,676.8",0 KB
+Delete10000,FastDB,"356,389.3",0 KB
+Delete1000,LiteDB,"1,315.2",192 KB
+Delete5000,LiteDB,"1,061.8",848 KB
+Delete10000,LiteDB,"1,206.1","1,664 KB"
+Delete1000,SQLite,605.0,52 KB
+Delete5000,SQLite,625.6,228 KB
+Delete10000,SQLite,697.2,444 KB

@@ -1,0 +1,7 @@
+Method,Product,Mode,Op/s,FileSize
+Insert1000,FastDB,Bulk,"948,166.9",37 KB
+Insert10000,FastDB,Bulk,"3,303,673.7",379 KB
+Insert100000,FastDB,Bulk,"5,183,056.9",4181 KB
+Insert1000,FastDB,Single,"265,188.7",37 KB
+Insert10000,FastDB,Single,"339,479.0",379 KB
+Insert100000,FastDB,Single,"425,479.9",4181 KB

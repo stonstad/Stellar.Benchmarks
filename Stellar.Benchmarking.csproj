@@ -2,33 +2,40 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>$(DefineConstants);VistaDB</DefineConstants>
+  <PropertyGroup>
+    <VistaDBPath>$(MSBuildProgramFiles32)\Gibraltar Software\VistaDB 6\Redist\Asp.Net\VistaDB.6.dll</VistaDBPath>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+  <PropertyGroup Condition="Exists('$(VistaDBPath)')">
     <DefineConstants>$(DefineConstants);VistaDB</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.15.8" />
     <PackageReference Include="LiteDB" Version="5.0.19" />
-    <PackageReference Include="MessagePack" Version="2.5.140" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.4" />
-    <PackageReference Include="Stellar.FastDB" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Benchmark the local FastDB source instead of the published NuGet package. MessagePack comes from FastDB. -->
+    <ProjectReference Include="..\Stellar.FastDB\Stellar.FastDB\Stellar.FastDB.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="Exists('$(VistaDBPath)')">
     <Reference Include="VistaDB.6">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Gibraltar Software\VistaDB 6\Redist\Asp.Net\VistaDB.6.dll</HintPath>
+      <HintPath>$(VistaDBPath)</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="!Exists('$(VistaDBPath)')">
+    <Compile Remove="Products\VistaDB\**" />
   </ItemGroup>
 
 </Project>

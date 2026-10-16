@@ -1,0 +1,10 @@
+Method,Product,Op/s,FileSize
+Upsert1000,FastDB,"332,354.7",60 KB
+Upsert5000,FastDB,"297,746.7",307 KB
+Upsert10000,FastDB,"315,830.7",614 KB
+Upsert1000,LiteDB,"3,259.8",192 KB
+Upsert5000,LiteDB,"3,693.9",848 KB
+Upsert10000,LiteDB,"3,459.7","1,664 KB"
+Upsert1000,SQLite,713.0,52 KB
+Upsert5000,SQLite,645.0,228 KB
+Upsert10000,SQLite,678.5,444 KB

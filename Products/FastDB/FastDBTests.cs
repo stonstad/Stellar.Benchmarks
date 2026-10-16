@@ -47,7 +47,7 @@ namespace Stellar.Benchmarking
 
         public void Bulk()
         {
-            _Customers.AddBulkAsync(_TestData.ToDictionary(a => a.Id, a => a)).GetAwaiter().GetResult();
+            _Customers.AddBulkAsync(_TestData.ToDictionary(a => a.Id, a => a)).AsTask().GetAwaiter().GetResult();
         }
 
         public void Delete()
@@ -73,8 +73,11 @@ namespace Stellar.Benchmarking
                 value += customer.Id;
         }
 
+        // compacts first, so the size is what the file settles at once background compaction has finished; called after the
+        // timed part of a benchmark
         public long GetFileSizeBytes()
         {
+            _FastDB.Compact();
             return new FileInfo(_FileName).Length;
         }
     }
