@@ -79,10 +79,15 @@ namespace Stellar.Benchmarking
                 value += customer.Id;
         }
 
+        // rebuilds first, so deleted and overwritten space is reclaimed as it is for every product; called after the timed
+        // part of a benchmark
         public long GetFileSizeBytes()
         {
             if (_FileName != null)
+            {
+                _LiteDatabase.Rebuild();
                 return new FileInfo(_FileName).Length;
+            }
             else
                 return -1;
         }
